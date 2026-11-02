@@ -45,11 +45,11 @@ def remove_product():
         return
     print("YOUR SHOPPING CART!!!")
     cart_items = list(shopping_cart.keys())
-    for i, item in enumerate(cart_items, 1):
+    for i, item in enumerate(cart_items, 1): ### Iterates through shopping cart
         print(f"{i}. {item} ({shopping_cart[item]})")
         
     remove_num = int(input("What item number would you like to remove?: "))
-    if 1 <= remove_num <= len(cart_items):
+    if 1 <= remove_num <= len(cart_items): ### Sets the boundries of the cart size
         item_to_remove = cart_items[remove_num - 1]
         removed_qty = shopping_cart.pop(item_to_remove)
         print(f"{item_to_remove} has been removed from your cart")
@@ -67,7 +67,7 @@ def view_cart():
 def shopping_total(): 
     print("CURRENT TOTAL")
     subtotal = 0
-    for item, quantity in shopping_cart.items():
+    for item, quantity in shopping_cart.items(): 
         price = products[item] * quantity ### Gets the price directly from the products dictionary
         
         print(f"{item} (x{quantity}): ${price:.2f}")
@@ -89,9 +89,9 @@ def checkout(subtotal):
     
     final_total = subtotal - subtotal * discount
     print("CHECKOUT")
-    print(f"Subtotal: ${subtotal:.2f}")
-    print(f"Discount: {discount * 100}%")
-    print(f"Amount Saved: ${subtotal * discount:.2f}")
+    print(f"Subtotal: ${subtotal:.2f}") ### Adds 2 digits
+    print(f"Discount: {discount * 100}%") ### Creates the discount
+    print(f"Amount Saved: ${subtotal * discount:.2f}") 
     
     print(f"Final Total: ${final_total:.2f}")
     print("Thank you for shopping!")
