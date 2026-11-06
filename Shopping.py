@@ -1,3 +1,8 @@
+from datetime import date,time
+
+today = date.today()
+
+
 products = { ## Total list of products
     "Banana" :5.00,
     "Gummy" :3.99,
@@ -95,6 +100,7 @@ def checkout(subtotal):
     
     print(f"Final Total: ${final_total:.2f}")
     print("Thank you for shopping!")
+    print(today)
     return final_total
     
         
